@@ -13,6 +13,7 @@ class Cell:
         self._y2 = None
         self._win = win
 
+  
     def draw(self, x1, y1, x2, y2):
         if self._win is None:
             return
@@ -47,6 +48,7 @@ class Cell:
         else:
             self._win.draw_line(bottom, "white")
 
+  
     def draw_move(self, to_cell, undo=False):
         if undo:
             fill_color = "gray"

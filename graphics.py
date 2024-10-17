@@ -9,9 +9,11 @@ class Window:
         self._running = False
         self._root.protocol("WM_DELETE_WINDOW", self.close)
 
+
     def redraw(self):
         self._root.update_idletasks()
         self._root.update()
+
 
     def wait_for_close(self):
         self._running = True
@@ -19,17 +21,21 @@ class Window:
         while self._running:
             self.redraw()
 
-    def draw_line(self, line, fill_color="black"):
-        line.draw(self._canvas, fill_color)
 
     def close(self):
         self._running = False
 
     
+    def draw_line(self, line, fill_color="black"):
+        line.draw(self._canvas, fill_color)
+
+
+
 class Point:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
 
 
 class Line:
@@ -37,6 +43,7 @@ class Line:
         self.p1 = p1
         self.p2 = p2
 
+    
     def draw(self, canvas, fill_color="black"):
         canvas.create_line(
             self.p1.x, self.p1.y, self.p2.x, self.p2.y, fill=fill_color, width=2
